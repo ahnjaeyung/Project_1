@@ -3,7 +3,7 @@ var imdbApiKey = "k_ycgtzpsn"
 // Eric - my imdb api key: k_wr2r650t 
 // Eric - OMDB- key: eff6676c
 // var tasteApiKey = "430108-MovieWat-3L4Y98MZ"
-// var movieSearch = "Iron Man"
+
 var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
 
@@ -21,22 +21,6 @@ $(document).on('click','#saveBtn', function(e) {
     localStorage.setItem('watchList',favMovieList);
     console.log(favMovieList);
 });
-
-// for (let i = 0; i < storedMovieKeys.length; i++){
-//     var movieText = localStorage.getItem(storedMovieKeys[i]);
-//     // var movieKey = $("#" + storedMovieKeys[i]).find("some card id tag")
-//     // movieKey.val(movieText);
-// };
-// var removeBtn = $('#removeBtn')
-
-// removeBtn.on('click',function(){
-
-    // localStorage.removeItem('some movie title id tag')
-// })
-
-// var posterUrl = "https://imdb-api.com/en/API/SearchMovie/" + imdbApiKey + "/" + movie;
-
-// var tasteUrl = "https://tastedive.com/api/similar?q=" + movie + "&k=" + tasteApiKey;
 
 var movieTitle = "";
 var plot = "";
@@ -59,7 +43,6 @@ function searchBtnClick(event) {
     console.log(movie);
     movieInfo(movie);
 };
-
 
 function addSaveBtn(){
     if ($("#saveBtn")){
@@ -142,68 +125,3 @@ function movieInfo(movie) {
             //     })
         })
 }
-
-
-
-// fetch(tasteUrl)
-//     .then(function (response) {
-//         console.log(response);
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data)
-//     })
-
-// fetch(posterUrl)
-//     .then(function (response) {
-//         console.log(response);
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data)
-//     }) // for posters
-
-// fetch(imdbUrl)
-//     .then(function (response) {
-//         console.log(response);
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data)
-//     })
-
-
-
-// fetch("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=Jaws&country=us", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-// 		"x-rapidapi-key": "e3c6f9ffc5msh37b059e126c3216p1b907bjsnbce8a4f62537"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
-
-// fetch("https://gowatch.p.rapidapi.com/lookup/title/tmdb_id?id=496243&type=movie&country=us", {
-// 	"method": "POST",
-// 	"headers": {
-// 		"content-type": "application/x-www-form-urlencoded",
-// 		"x-rapidapi-host": "gowatch.p.rapidapi.com",
-// 		"x-rapidapi-key": "e3c6f9ffc5msh37b059e126c3216p1b907bjsnbce8a4f62537"
-// 	},
-// 	"body": {
-// 		"id": "496243",
-// 		"type": "movie",
-// 		"country": "us"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
