@@ -93,6 +93,8 @@ function movieInfo(movie) {
                     console.log(data);
                     var trailerUrl = data.videoUrl;
                     console.log(trailerUrl);
+                    $("#trailerUrl").attr("href", trailerUrl);
+                    $("#trailerUrl").text("Click to watch trailer")
                 })
         })
 }
