@@ -2,7 +2,6 @@ var apiKey = "881f77ea"
 var imdbApiKey = "k_ycgtzpsn"
 // Eric - my imdb api key: k_wr2r650t 
 // Eric - OMDB- key: eff6676c
-// var tasteApiKey = "430108-MovieWat-3L4Y98MZ"
 
 var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
@@ -48,10 +47,10 @@ function addSaveBtn(){
     if ($("#saveBtn")){
         $("#saveBtn").remove();
     }
-    var newBtn =$('<input type="button" value="Add to Watch List"/>').attr({
-        type: "button",
+    var newBtn =$('<input value="Add to Watch List"/>').attr({
+        type: "submit",
         id:"saveBtn",
-        class: "is-success",        
+        class: "button is-link",        
     })
     $('#movieContent').append(newBtn)
 };
@@ -102,7 +101,7 @@ function movieInfo(movie) {
             $("#releaseDate").text("Release Date: " + releaseDate);
             $("#director").text("Directed by: " + director);
             $("#actors").text("Actors: " + actors);
-            $("#movieRatings").text("Movie Ratings");
+            // $("#movieRatings").text("Movie Ratings");
             $("#imdbRating").text("IMDb: " + imdbRating);
             $("#rtRating").text("Rotten Tomatoes: " + rtRating);
             $("#mcRating").text("Metacritic: " + mcRating);
