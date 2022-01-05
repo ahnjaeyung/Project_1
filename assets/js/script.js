@@ -8,18 +8,18 @@ var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
 
 var storedMovieKeys = Object.keys(localStorage);
-var favMovieList = []
+var watchList = localStorage.watchList ? JSON.parse(localStorage.watchList): []
 $(document).on('click','#saveBtn', function(e) {
-    var movieTitle= $(e.target).parent().children(".title").text();
+    let movieTitle= $(e.target).parent().children(".title").text();
     
-    for (i = 0; i < favMovieList.length; i++) {
-        if (movieTitle === favMovieList[i]) {
-            favMovieList.splice(i, 1);
+    for (i = 0; i < watchList.length; i++) {
+        if (movieTitle === watchList[i]) {
+            watchList.splice(i, 1);
         }
     }
-    favMovieList.push(movieTitle)
-    localStorage.setItem('watchList',favMovieList);
-    console.log(favMovieList);
+    watchList.push(movieTitle)
+    localStorage.watchList = JSON.stringify(watchList);
+    console.log(watchList);
 });
 
 var movieTitle = "";
@@ -107,8 +107,6 @@ function movieInfo(movie) {
             $("#rtRating").text("Rotten Tomatoes: " + rtRating);
             $("#mcRating").text("Metacritic: " + mcRating);
             
-
-
             imdbId = data.imdbID;
             var imdbUrl = "https://imdb-api.com/API/YouTubeTrailer/" + imdbApiKey + "/" + imdbId;
             // fetch(imdbUrl)
@@ -122,6 +120,6 @@ function movieInfo(movie) {
             //         console.log(trailerUrl);
             //         $("#trailerUrl").attr("href", trailerUrl);
             //         $("#trailerUrl").text("Click to watch trailer")
-            //     })
+            //     }) // comment out when testing to preserve limited calls per day
         })
 }
