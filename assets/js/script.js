@@ -1,10 +1,38 @@
 var apiKey = "881f77ea"
 var imdbApiKey = "k_ycgtzpsn"
+// Eric - my imdb api key: k_wr2r650t 
+// Eric - OMDB- key: eff6676c
 // var tasteApiKey = "430108-MovieWat-3L4Y98MZ"
 // var movieSearch = "Iron Man"
 var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
 
+var storedMovieKeys = Object.keys(localStorage);
+var favMovieList = []
+$(document).on('click','#saveBtn', function(e) {
+    var movieTitle= $(e.target).parent().children(".title").text();
+    
+    for (i = 0; i < favMovieList.length; i++) {
+        if (movieTitle === favMovieList[i]) {
+            favMovieList.splice(i, 1);
+        }
+    }
+    favMovieList.push(movieTitle)
+    localStorage.setItem('watchList',favMovieList);
+    console.log(favMovieList);
+});
+
+// for (let i = 0; i < storedMovieKeys.length; i++){
+//     var movieText = localStorage.getItem(storedMovieKeys[i]);
+//     // var movieKey = $("#" + storedMovieKeys[i]).find("some card id tag")
+//     // movieKey.val(movieText);
+// };
+// var removeBtn = $('#removeBtn')
+
+// removeBtn.on('click',function(){
+
+    // localStorage.removeItem('some movie title id tag')
+// })
 
 // var posterUrl = "https://imdb-api.com/en/API/SearchMovie/" + imdbApiKey + "/" + movie;
 
@@ -30,7 +58,20 @@ function searchBtnClick(event) {
     let movie = movieSearch.value;
     console.log(movie);
     movieInfo(movie);
-}
+};
+
+
+function addSaveBtn(){
+    if ($("#saveBtn")){
+        $("#saveBtn").remove();
+    }
+    var newBtn =$('<input type="button" value="Add to Watch List"/>').attr({
+        type: "button",
+        id:"saveBtn",
+        class: "is-success",        
+    })
+    $('#movieContent').append(newBtn)
+};
 
 function movieInfo(movie) {
     var omdbUrl = "http://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie;
@@ -67,6 +108,8 @@ function movieInfo(movie) {
             console.log(mcRating);
             console.log(posterUrl);
 
+            addSaveBtn()
+
             $("#moviePoster").attr("src", posterUrl);
             $("#movieTitle").text(movieTitle);
             $("#plot").text(plot);
@@ -80,22 +123,23 @@ function movieInfo(movie) {
             $("#imdbRating").text("IMDb: " + imdbRating);
             $("#rtRating").text("Rotten Tomatoes: " + rtRating);
             $("#mcRating").text("Metacritic: " + mcRating);
+            
 
 
             imdbId = data.imdbID;
             var imdbUrl = "https://imdb-api.com/API/YouTubeTrailer/" + imdbApiKey + "/" + imdbId;
-            fetch(imdbUrl)
-                .then(function (response) {
-                    console.log(response);
-                    return response.json();
-                })
-                .then(function (data) {
-                    console.log(data);
-                    var trailerUrl = data.videoUrl;
-                    console.log(trailerUrl);
-                    $("#trailerUrl").attr("href", trailerUrl);
-                    $("#trailerUrl").text("Click to watch trailer")
-                })
+            // fetch(imdbUrl)
+            //     .then(function (response) {
+            //         console.log(response);
+            //         return response.json();
+            //     })
+            //     .then(function (data) {
+            //         console.log(data);
+            //         var trailerUrl = data.videoUrl;
+            //         console.log(trailerUrl);
+            //         $("#trailerUrl").attr("href", trailerUrl);
+            //         $("#trailerUrl").text("Click to watch trailer")
+            //     })
         })
 }
 
