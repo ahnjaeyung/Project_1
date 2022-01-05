@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
 
-        Hello
-      </h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rotten Potatoes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <p>
+        <img src="./assets/images/rottenPotato.png" alt="Rotten Potato">
+      </p>
+      <p class="title">
+        Rotten Potatoes
+      </p>
       <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p> //comment
+        The red-headed stepchild of RT!
+      </p>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input class="input" type="text" placeholder="Search Movie Title" id="movieSearch">
+        </p>
+        <p class="control">
+          <button class="button is-info" id="searchBtn">
+            <i class="fa fa-search"></i>
+          </button>
+        </p>
+      </div>
     </div>
   </section>
+
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <figure class="image is-16by9">
+              <img id="moviePoster"></img>
+            </figure>
+          </div>
+        </div>
+
+        <section class="section">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <div class="content is-medium">
+                <h1 class="title" id="movieTitle"></h1>
+                <div id="plot"></div>
+                <div id="genre"></div>
+                <div id="mpaaRating"></div>
+                <div id="runtime"></div>
+                <div id="releaseDate"></div>
+                <div id="director"></div>
+                <div id="actors"></div>
+                <h4 id="movieRatings"></h4>
+                <div id="imdbRating"></div>
+                <div id="rtRating"></div>
+                <div id="mcRating"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="is-divider"></div>
+
+      </div>
+    </div>
+  </section>
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./assets/jss/script.js"></script>
-  </body>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
