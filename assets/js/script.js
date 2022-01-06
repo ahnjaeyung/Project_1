@@ -76,7 +76,7 @@ function addRemoveBtn(){
     var newBtn =$('<input value="Remove from Watch List"/>').attr({
         type: "submit",
         id:"removeBtn",
-        class: "button is-danger",        
+        class: "button is-link is-danger is-outlined",        
     })
     $('#movieContent').append(newBtn)
 }
@@ -84,7 +84,7 @@ function addRemoveBtn(){
 function createWatchList() {
     document.querySelector("#watchList").innerHTML = "";
     for (i = 0; i < watchList.length; i++) {
-        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button column is-half is-success">${watchList[i]}</button>`
+        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button column is-half is-success is-outlined style-btn">${watchList[i]}</button>`
     }
 }
 
