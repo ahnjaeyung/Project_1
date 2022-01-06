@@ -1,0 +1,33 @@
+#plot {
+    font-style: italic;
+}
+
+#movieTitle {
+    font-weight: 700;
+    font-size: 300%;
+}
+
+#imdbRating {
+    color: rgb(204, 175, 9);
+    font-weight: 500;
+}
+
+#rtRating {
+    color: rgb(212, 48, 48);
+    font-weight: 500;
+}
+
+#mcRating {
+    color: rgb(61, 199, 48);
+    font-weight: 500;
+}
+
+#trailerUrl {
+    color: rgb(13, 201, 226);
+    font-weight: 500;
+    font-size: 125%;
+}
+
+.style-btn {
+    font-family: 'Courier New', Courier, monospace;
+}
