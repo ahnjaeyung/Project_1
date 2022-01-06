@@ -30,6 +30,14 @@
 
 .style-btn {
     font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+}
+
+.watchListHeader {
+    color: rgb(243, 235, 235);
+    font-size: 300%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 27%;
 }
 
 .subtitle{
