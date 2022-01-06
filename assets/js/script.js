@@ -23,7 +23,16 @@ $(document).on('click','#saveBtn', function(e) {
     console.log(watchList);
     createWatchList()
 });
-
+$(document).on('click','#removeBtn', function(e) {
+    let movieTitle= $(e.target).parent().children(".title").text();
+    
+    for (i = 0; i < watchList.length; i++) {
+        if (movieTitle === watchList[i]) {
+            watchList.splice(i, 1);
+        }
+    }
+    createWatchList()
+});
 var movieTitle = "";
 var plot = "";
 var genre = "";
