@@ -2,6 +2,7 @@ var apiKey = "881f77ea"
 var imdbApiKey = "k_ycgtzpsn"
 // Eric - my imdb api key: k_wr2r650t 
 // Eric - OMDB- key: eff6676c
+// Keith - OMDB - key: ac1f15b6
 
 var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
@@ -19,6 +20,7 @@ $(document).on('click','#saveBtn', function(e) {
     watchList.push(movieTitle)
     localStorage.watchList = JSON.stringify(watchList);
     console.log(watchList);
+    createWatchList()
 });
 
 var movieTitle = "";
@@ -54,6 +56,13 @@ function addSaveBtn(){
     })
     $('#movieContent').append(newBtn)
 };
+
+function createWatchList() {
+    document.querySelector("#watchList").innerHTML = "";
+    for (i = 0; i < watchList.length; i++) {
+        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button">${watchList[i]}</button>`
+    }
+}
 
 function movieInfo(movie) {
     var omdbUrl = "http://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie;
