@@ -2,6 +2,7 @@ var apiKey = "881f77ea"
 var imdbApiKey = "k_ycgtzpsn"
 // Eric - my imdb api key: k_wr2r650t 
 // Eric - OMDB- key: eff6676c
+// Keith - OMDB - key: ac1f15b6
 
 
 var movieSearch = document.getElementById("movieSearch");
@@ -20,6 +21,7 @@ $(document).on('click','#saveBtn', function(e) {
     watchList.push(movieTitle)
     localStorage.watchList = JSON.stringify(watchList);
     console.log(watchList);
+    createWatchList()
 });
 
 var movieTitle = "";
@@ -36,6 +38,8 @@ var mcRating = "";
 var posterUrl = "";
 var imdbId = "";
 var trailerUrl = "";
+
+createWatchList()
 
 searchBtn.addEventListener("click", searchBtnClick);
 function searchBtnClick(event) {
@@ -55,6 +59,25 @@ function addSaveBtn(){
     })
     $('#movieContent').append(newBtn)
 };
+
+function addRemoveBtn(){
+    if ($("#removeBtn")){
+        $("#removeBtn").remove();
+    }
+    var newBtn =$('<input value="Remove from Watch List"/>').attr({
+        type: "submit",
+        id:"removeBtn",
+        class: "button is-link",        
+    })
+    $('#movieContent').append(newBtn)
+}
+
+function createWatchList() {
+    document.querySelector("#watchList").innerHTML = "";
+    for (i = 0; i < watchList.length; i++) {
+        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button column is-half">${watchList[i]}</button>`
+    }
+}
 
 function movieInfo(movie) {
     var omdbUrl = "http://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie;
@@ -92,6 +115,7 @@ function movieInfo(movie) {
             console.log(posterUrl);
 
             addSaveBtn()
+            addRemoveBtn()
 
             $("#moviePoster").attr("src", posterUrl);
             $("#movieTitle").text(movieTitle);
