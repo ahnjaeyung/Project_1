@@ -3,6 +3,7 @@ var imdbApiKey = "k_ycgtzpsn"
 // Eric - my imdb api key: k_wr2r650t 
 // Eric - OMDB- key: eff6676c
 
+
 var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
 
