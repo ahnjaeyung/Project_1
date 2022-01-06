@@ -38,6 +38,8 @@ var posterUrl = "";
 var imdbId = "";
 var trailerUrl = "";
 
+createWatchList()
+
 searchBtn.addEventListener("click", searchBtnClick);
 function searchBtnClick(event) {
     let movie = movieSearch.value;
@@ -57,10 +59,22 @@ function addSaveBtn(){
     $('#movieContent').append(newBtn)
 };
 
+function addRemoveBtn(){
+    if ($("#removeBtn")){
+        $("#removeBtn").remove();
+    }
+    var newBtn =$('<input value="Remove from Watch List"/>').attr({
+        type: "submit",
+        id:"removeBtn",
+        class: "button is-link",        
+    })
+    $('#movieContent').append(newBtn)
+}
+
 function createWatchList() {
     document.querySelector("#watchList").innerHTML = "";
     for (i = 0; i < watchList.length; i++) {
-        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button">${watchList[i]}</button>`
+        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button column is-half">${watchList[i]}</button>`
     }
 }
 
@@ -100,6 +114,7 @@ function movieInfo(movie) {
             console.log(posterUrl);
 
             addSaveBtn()
+            addRemoveBtn()
 
             $("#moviePoster").attr("src", posterUrl);
             $("#movieTitle").text(movieTitle);
