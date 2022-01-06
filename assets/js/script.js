@@ -89,7 +89,7 @@ function createWatchList() {
 }
 
 function movieInfo(movie) {
-    var omdbUrl = "http://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie;
+    var omdbUrl = "https://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie;
     fetch(omdbUrl)
         .then(function (response) {
             console.log(response);
@@ -142,17 +142,17 @@ function movieInfo(movie) {
             
             imdbId = data.imdbID;
             var imdbUrl = "https://imdb-api.com/API/YouTubeTrailer/" + imdbApiKey + "/" + imdbId;
-            // fetch(imdbUrl)
-            //     .then(function (response) {
-            //         console.log(response);
-            //         return response.json();
-            //     })
-            //     .then(function (data) {
-            //         console.log(data);
-            //         var trailerUrl = data.videoUrl;
-            //         console.log(trailerUrl);
-            //         $("#trailerUrl").attr("href", trailerUrl);
-            //         $("#trailerUrl").text("Click to watch trailer")
-            //     }) // comment out when testing to preserve limited calls per day
+            fetch(imdbUrl)
+                .then(function (response) {
+                    console.log(response);
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    var trailerUrl = data.videoUrl;
+                    console.log(trailerUrl);
+                    $("#trailerUrl").attr("href", trailerUrl);
+                    $("#trailerUrl").text("Click to watch trailer")
+                }) // comment out when testing to preserve limited calls per day
         })
 }
