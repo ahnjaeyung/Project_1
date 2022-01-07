@@ -4,7 +4,6 @@ var imdbApiKey = "k_ycgtzpsn"
 // Eric - OMDB- key: eff6676c
 // Keith - OMDB - key: ac1f15b6
 
-
 var movieSearch = document.getElementById("movieSearch");
 var searchBtn = document.getElementById("searchBtn")
 
@@ -84,10 +83,9 @@ function addRemoveBtn(){
 function createWatchList() {
     document.querySelector("#watchList").innerHTML = "";
     for (i = 0; i < watchList.length; i++) {
-        document.querySelector("#watchList").innerHTML += `<button onclick="movieInfo('${watchList[i]}')"class="button column is-half is-success is-outlined style-btn">${watchList[i]}</button>`
+        document.querySelector("#watchList").innerHTML += `<button onclick='watchMovieInfo(event)' id = "${watchList[i]}" class="button column is-half is-success is-outlined style-btn">${watchList[i]}</button>`
     }
 }
-
 function movieInfo(movie) {
     var omdbUrl = "https://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie;
     fetch(omdbUrl)
@@ -135,7 +133,6 @@ function movieInfo(movie) {
             $("#releaseDate").text("Release Date: " + releaseDate);
             $("#director").text("Directed by: " + director);
             $("#actors").text("Actors: " + actors);
-            // $("#movieRatings").text("Movie Ratings");
             $("#imdbRating").text("IMDb: " + imdbRating);
             $("#rtRating").text("Rotten Tomatoes: " + rtRating);
             $("#mcRating").text("Metacritic: " + mcRating);
@@ -155,4 +152,9 @@ function movieInfo(movie) {
                     $("#trailerUrl").text("Click to watch trailer")
                 }) // comment out when testing to preserve limited calls per day
         })
+}
+
+function watchMovieInfo(event) {
+    console.log(event.target.id);
+    movieInfo(event.target.id);
 }
