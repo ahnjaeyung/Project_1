@@ -45,7 +45,6 @@
     font-size: 40px;
     font-weight: bolder;
     color: rgb(0, 0, 0);
-    background-color: rgba(240, 248, 255, 0.623);
     width: fit-content;
 }
 #titleRT{
@@ -55,11 +54,11 @@
     color: rgb(90, 50, 12);
 }
 #titleBox{
-    background-image:url("../images/mud.jpg");
+    background-image:url("../images/potatoes.png");
     background-size: cover;
     background-position: bottom;
     border-color: rgba(240, 248, 255, 0);
-}
+}    
 #potatoImg{
     background-color: transparent;
 }
